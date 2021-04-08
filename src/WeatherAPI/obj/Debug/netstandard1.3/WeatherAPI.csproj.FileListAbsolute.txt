@@ -1,0 +1,9 @@
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\bin\Debug\netstandard1.3\WeatherAPI.deps.json
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\bin\Debug\netstandard1.3\WeatherAPI.dll
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\bin\Debug\netstandard1.3\WeatherAPI.pdb
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\obj\Debug\netstandard1.3\WeatherAPI.csprojAssemblyReference.cache
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\obj\Debug\netstandard1.3\WeatherAPI.AssemblyInfoInputs.cache
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\obj\Debug\netstandard1.3\WeatherAPI.AssemblyInfo.cs
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\obj\Debug\netstandard1.3\WeatherAPI.csproj.CoreCompileInputs.cache
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\obj\Debug\netstandard1.3\WeatherAPI.dll
+D:\Projects\.GitHub\weatherapi-Net-Standard\src\WeatherAPI\obj\Debug\netstandard1.3\WeatherAPI.pdb
