@@ -4,14 +4,8 @@ namespace WeatherAPI.Entities
 {
     public class RequestEntity : BaseRequestEntity
     {
-        public class Builder : BaseRequestEntityBuilder
+        public class Builder : BaseRequestEntityBuilder<RequestEntity>
         {
         }
-
-        #region Constructors
-        internal RequestEntity()
-        {
-        }
-        #endregion
     }
 }

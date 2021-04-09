@@ -16,7 +16,7 @@ namespace Sample.Realtime
 
             Console.WriteLine($"The weather in {currentWeather.Location.Name}, {currentWeather.Location.Country} is {currentWeather.Current.TemperatureC} degrees C and {currentWeather.Current.Condition.Description}!");
 
-            var request = new RequestEntity.Builder()
+            var request = new RealtimeRequestEntity.Builder()
                 .WithCityName("London")
                 .Build();
 

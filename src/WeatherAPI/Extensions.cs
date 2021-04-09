@@ -7,18 +7,15 @@ namespace WeatherAPI
     {
         #region Public Methods
         /// <summary>
-        /// Builds the request configuration.
+        /// Configures the builder to include or exclude air quality data from the response.
         /// </summary>
-        public static RequestEntity Build<TBuilder>(this TBuilder builder)
-            where TBuilder : BaseRequestEntityBuilder
+        /// <param name="getAirQualityData">Whether to get air quality data.</param>
+        public static TBuilder WithAirQualityData<TBuilder>(this TBuilder builder, bool getAirQualityData)
+            where TBuilder : RealtimeRequestEntity.Builder
         {
-            builder.CheckParameters();
+            builder.GetAirQualityData = getAirQualityData;
 
-            var request = new RequestEntity();
-
-            builder.ConfigureRequest(request);
-
-            return request;
+            return builder;
         }
 
         /// <summary>

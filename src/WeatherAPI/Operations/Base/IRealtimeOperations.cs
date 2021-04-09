@@ -22,13 +22,13 @@ namespace WeatherAPI.Operations.Base
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="request">The request configuration.</param>
-        Task<RealtimeResponseEntity> GetCurrentAsync(RequestEntity request, CancellationToken cancellationToken = default);
+        Task<RealtimeResponseEntity> GetCurrentAsync(RealtimeRequestEntity request, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="request">The request configuration.</param>
-        Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestEntity request, CancellationToken cancellationToken = default)
+        Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RealtimeRequestEntity request, CancellationToken cancellationToken = default)
             where TRealtimeResponseEntity : class;
         #endregion
     }
