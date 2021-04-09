@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using WeatherAPI.Entities.Base;
 
 namespace WeatherAPI.Entities
 {
-    public class RealtimeResponseEntity
+    public class RealtimeResponseEntity : BaseResponseEntity
     {
         #region Properties
         /// <summary>
@@ -10,12 +11,6 @@ namespace WeatherAPI.Entities
         /// </summary>
         [JsonProperty("current")]
         public CurrentEntity Current { get; set; }
-
-        /// <summary>
-        /// Gets or sets the location.
-        /// </summary>
-        [JsonProperty("location")]
-        public LocationEntity Location { get; set; }
         #endregion
     }
 }
