@@ -152,9 +152,15 @@ namespace WeatherAPI.Base
         /// <summary>
         /// Creates a new WeatherAPI API client with an optional custom base URI.
         /// </summary>
+        /// <param name="apiKey">Your WeatherAPI API key.</param>
         /// <param name="baseApiUri">The base URI to use for the API, or null for default.</param>
-        protected BaseApiClient(Uri baseApiUri = null)
+        protected BaseApiClient(string apiKey, Uri baseApiUri = null)
         {
+            if (string.IsNullOrWhiteSpace(apiKey))
+                throw new ArgumentException("The provided API key is not valid.");
+
+            ApiKey = apiKey;
+
             BaseApiUri = baseApiUri ?? DefaultBaseApiUri;
 
             HttpClient = new HttpClient();
