@@ -31,7 +31,7 @@ namespace WeatherAPI
         /// </summary>
         /// <param name="apiKey">Your WeatherAPI API key.</param>
         /// <param name="baseApiUri">The base URI to use for the API, or null for default.</param>
-        public WeatherAPIClient(string apiKey, Uri baseApiUri)
+        public WeatherAPIClient(string apiKey, Uri baseApiUri = null)
             : base(apiKey, baseApiUri)
         {
             _realtimeOperations = ConstructRealtimeOperations();

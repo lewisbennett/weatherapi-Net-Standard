@@ -13,37 +13,37 @@ namespace WeatherAPI.Operations
         /// <summary>
         /// Gets the current weather condition using automatic location.
         /// </summary>
-        public virtual Task<CurrentEntity> GetCurrentAsync(CancellationToken cancellationToken = default)
+        public virtual Task<RealtimeResponseEntity> GetCurrentAsync(CancellationToken cancellationToken = default)
         {
-            return ((IRealtimeOperations)this).GetCurrentAsync<CurrentEntity>(cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<RealtimeResponseEntity>(cancellationToken);
         }
 
         /// <summary>
         /// Gets the current weather condition using automatic location.
         /// </summary>
-        public virtual Task<TCurrentEntity> GetCurrentAsync<TCurrentEntity>(CancellationToken cancellationToken = default)
-            where TCurrentEntity : class
+        public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(CancellationToken cancellationToken = default)
+            where TRealtimeResponseEntity : class
         {
-            return ((IRealtimeOperations)this).GetCurrentAsync<TCurrentEntity>(new RequestEntity.Builder().Build(), cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(new RequestEntity.Builder().Build(), cancellationToken);
         }
 
         /// <summary>
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="request">The request configuration.</param>
-        public virtual Task<CurrentEntity> GetCurrentAsync(RequestEntity request, CancellationToken cancellationToken = default)
+        public virtual Task<RealtimeResponseEntity> GetCurrentAsync(RequestEntity request, CancellationToken cancellationToken = default)
         {
-            return ((IRealtimeOperations)this).GetCurrentAsync<CurrentEntity>(new RequestEntity.Builder().Build(), cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<RealtimeResponseEntity>(request, cancellationToken);
         }
 
         /// <summary>
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="request">The request configuration.</param>
-        public virtual Task<TCurrentEntity> GetCurrentAsync<TCurrentEntity>(RequestEntity request, CancellationToken cancellationToken = default)
-            where TCurrentEntity : class
+        public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestEntity request, CancellationToken cancellationToken = default)
+            where TRealtimeResponseEntity : class
         {
-            return ApiRequestor.RequestJsonSerializedAsync<TCurrentEntity>(HttpMethod.Get, "current.json", request.GetParameters(), null, cancellationToken);
+            return ApiRequestor.RequestJsonSerializedAsync<TRealtimeResponseEntity>(HttpMethod.Get, "current.json", request.GetParameters(), null, cancellationToken);
         }
         #endregion
 

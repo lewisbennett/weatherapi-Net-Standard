@@ -57,7 +57,7 @@ namespace WeatherAPI.Base
 
             // Add any provided query parameters.
             if (queryParameters != null && queryParameters.Length > 0)
-                path += string.Join("&", queryParameters);
+                path += $"&{string.Join("&", queryParameters)}";
 
             // Build the request using provided HTTP method, and build the request URI using the base API URI, provided path, and validated API key.
             var request = new HttpRequestMessage(method, path);
@@ -175,7 +175,7 @@ namespace WeatherAPI.Base
         #endregion
 
         #region Constant Values
-        public static readonly Uri DefaultBaseApiUri = new("https://api.weatherapi.com/v1");
+        public static readonly Uri DefaultBaseApiUri = new("https://api.weatherapi.com/v1/");
         #endregion
     }
 }

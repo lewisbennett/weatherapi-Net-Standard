@@ -112,7 +112,7 @@ namespace WeatherAPI.Entities
         /// Gets or sets the wind direction, as interpreted on a 16 point compass (for example: NNW = north north west).
         /// </summary>
         [JsonProperty("wind_dir")]
-        public float WindDirectionC { get; set; }
+        public string WindDirectionC { get; set; }
 
         /// <summary>
         /// Gets or sets the wind direction, in degrees.

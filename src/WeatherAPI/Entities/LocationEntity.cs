@@ -27,12 +27,13 @@ namespace WeatherAPI.Entities
         /// <summary>
         /// Gets or sets the local time, in unix time. 
         /// </summary>
+        [JsonProperty("localtime_epoch")]
         public long LocalTimeEpoch { get; set; }
 
         /// <summary>
         /// Gets or sets the longitude.
         /// </summary>
-        [JsonProperty("longitude")]
+        [JsonProperty("lon")]
         public float Longitude { get; set; }
 
         /// <summary>
