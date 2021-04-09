@@ -7,6 +7,12 @@ namespace WeatherAPI.Entities
     {
         #region Properties
         /// <summary>
+        /// Gets or sets the air quality data, if requested.
+        /// </summary>
+        [JsonProperty("air_quality")]
+        public AirQualityDataEntity AirQualityData { get; set; }
+
+        /// <summary>
         /// Gets or sets the amount of cloud coverage, as a percentage (0-100%).
         /// </summary>
         [JsonProperty("cloud")]
