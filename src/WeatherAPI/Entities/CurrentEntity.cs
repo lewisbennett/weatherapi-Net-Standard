@@ -109,6 +109,18 @@ namespace WeatherAPI.Entities
         public float UV { get; set; }
 
         /// <summary>
+        /// gets or sets the visibility, in kilometers.
+        /// </summary>
+        [JsonProperty("vis_km")]
+        public float VisibilityKm { get; set; }
+
+        /// <summary>
+        /// Gets or sets the visibility, in miles.
+        /// </summary>
+        [JsonProperty("vis_miles")]
+        public float VisibilityMi { get; set; }
+
+        /// <summary>
         /// Gets or sets the wind direction, as interpreted on a 16 point compass (for example: NNW = north north west).
         /// </summary>
         [JsonProperty("wind_dir")]
