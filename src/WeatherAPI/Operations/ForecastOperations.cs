@@ -13,37 +13,37 @@ namespace WeatherAPI.Operations
         /// <summary>
         /// Gets the forecast using automatic location.
         /// </summary>
-        public virtual Task<ForecastEntity> GetForecastAsync(CancellationToken cancellationToken = default)
+        public virtual Task<ForecastResponseEntity> GetForecastAsync(CancellationToken cancellationToken = default)
         {
-            return ((IForecastOperations)this).GetForecastAsync<ForecastEntity>(cancellationToken);
+            return ((IForecastOperations)this).GetForecastAsync<ForecastResponseEntity>(cancellationToken);
         }
 
         /// <summary>
         /// Gets the forecast using automatic location.
         /// </summary>
-        public virtual Task<TForecastEntity> GetForecastAsync<TForecastEntity>(CancellationToken cancellationToken = default)
-            where TForecastEntity : class
+        public virtual Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(CancellationToken cancellationToken = default)
+            where TForecastResponseEntity : class
         {
-            return ((IForecastOperations)this).GetForecastAsync<TForecastEntity>(RequestQuery.CreateFromAutoIP(), cancellationToken);
+            return ((IForecastOperations)this).GetForecastAsync<TForecastResponseEntity>(RequestQuery.CreateFromAutoIP(), cancellationToken);
         }
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        public virtual Task<ForecastEntity> GetForecastAsync(RequestQuery query, CancellationToken cancellationToken = default)
+        public virtual Task<ForecastResponseEntity> GetForecastAsync(RequestQuery query, CancellationToken cancellationToken = default)
         {
-            return ((IForecastOperations)this).GetForecastAsync<ForecastEntity>(query, cancellationToken);
+            return ((IForecastOperations)this).GetForecastAsync<ForecastResponseEntity>(query, cancellationToken);
         }
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        public virtual Task<TForecastEntity> GetForecastAsync<TForecastEntity>(RequestQuery query, CancellationToken cancellationToken = default)
-            where TForecastEntity : class
+        public virtual Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
+            where TForecastResponseEntity : class
         {
-            return ApiRequestor.RequestJsonSerializedAsync<TForecastEntity>(HttpMethod.Get, "forecast.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter);
+            return ApiRequestor.RequestJsonSerializedAsync<TForecastResponseEntity>(HttpMethod.Get, "forecast.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter);
         }
         #endregion
 

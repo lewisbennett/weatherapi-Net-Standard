@@ -9,7 +9,7 @@ namespace WeatherAPI.Entities
         /// Gets or sets the average humidity, as a percentage (0-100%).
         /// </summary>
         [JsonProperty("avghumidity")]
-        public int AverageHumidity { get; set; }
+        public float AverageHumidity { get; set; }
 
         /// <summary>
         /// Gets or sets the average temperature, in Celcius.
