@@ -12,6 +12,7 @@ namespace WeatherAPI
         private readonly IForecastOperations _forecastOperations;
         private readonly IIPLookupOperations _ipLookupOperations;
         private readonly IRealtimeOperations _realtimeOperations;
+        private readonly ISportsOperations _sportsOperations;
         private readonly ITimeZoneOperations _timeZoneOperations;
         #endregion
 
@@ -35,6 +36,11 @@ namespace WeatherAPI
         /// Gets the realtime API operations.
         /// </summary>
         public IRealtimeOperations Realtime => _realtimeOperations;
+
+        /// <summary>
+        /// Gets the sports API operations;
+        /// </summary>
+        public ISportsOperations Sports => _sportsOperations;
 
         /// <summary>
         /// Gets the time zone API operations.
@@ -63,6 +69,11 @@ namespace WeatherAPI
             return new RealtimeOperations(this);
         }
 
+        protected virtual ISportsOperations ConstructSportsOperations()
+        {
+            return new SportsOperations(this);
+        }
+
         protected virtual ITimeZoneOperations ConstructTimeZoneOperations()
         {
             return new TimeZoneOperations(this);
@@ -82,6 +93,7 @@ namespace WeatherAPI
             _forecastOperations = ConstructForecastOperations();
             _ipLookupOperations = ConstructIPLookupOperations();
             _realtimeOperations = ConstructRealtimeOperations();
+            _sportsOperations = ConstructSportsOperations();
             _timeZoneOperations = ConstructTimeZoneOperations();
         }
         #endregion

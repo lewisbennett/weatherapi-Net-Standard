@@ -26,6 +26,11 @@ namespace WeatherAPI.Base
         IRealtimeOperations Realtime { get; }
 
         /// <summary>
+        /// Gets the sports API operations.
+        /// </summary>
+        ISportsOperations Sports { get; }
+
+        /// <summary>
         /// Gets the time zone API operations.
         /// </summary>
         ITimeZoneOperations TimeZones { get; }
