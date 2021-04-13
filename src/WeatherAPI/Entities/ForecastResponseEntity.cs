@@ -7,6 +7,12 @@ namespace WeatherAPI.Entities
     {
         #region Properties
         /// <summary>
+        /// Gets or sets the weather alerts, if any.
+        /// </summary>
+        [JsonProperty("alerts")]
+        public AlertsEntity Alerts { get; set; }
+
+        /// <summary>
         /// Gets or sets the current weather information for the location.
         /// </summary>
         [JsonProperty("current")]
