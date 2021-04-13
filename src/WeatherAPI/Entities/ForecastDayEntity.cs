@@ -29,6 +29,12 @@ namespace WeatherAPI.Entities
         /// </summary>
         [JsonProperty("day")]
         public DayEntity Day { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hourly forecast.
+        /// </summary>
+        [JsonProperty("hour")]
+        public HourEntity[] Hour { get; set; }
         #endregion
     }
 }
