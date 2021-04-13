@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using WeatherAPI.Entities.Base;
 
 namespace WeatherAPI.Entities
 {
-    public class AstronomyResponseEntity : BaseResponseEntity
+    public class AstronomyResponseEntity
     {
         #region Properties
         /// <summary>
@@ -11,6 +10,12 @@ namespace WeatherAPI.Entities
         /// </summary>
         [JsonProperty("astronomy")]
         public AstronomyEntity Astronomy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the location.
+        /// </summary>
+        [JsonProperty("location")]
+        public LocationEntity Location { get; set; }
         #endregion
     }
 }
