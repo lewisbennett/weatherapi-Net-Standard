@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Astronomy", "Samples
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.IPLookup", "Samples\Sample.IPLookup\Sample.IPLookup.csproj", "{E8A21AA9-5509-4FE0-8CD5-7B2405A5820E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.TimeZone", "Samples\Sample.TimeZone\Sample.TimeZone.csproj", "{9D6B3E44-7EC8-40C0-BCC9-D018DC0CF6C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E8A21AA9-5509-4FE0-8CD5-7B2405A5820E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8A21AA9-5509-4FE0-8CD5-7B2405A5820E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8A21AA9-5509-4FE0-8CD5-7B2405A5820E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D6B3E44-7EC8-40C0-BCC9-D018DC0CF6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D6B3E44-7EC8-40C0-BCC9-D018DC0CF6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D6B3E44-7EC8-40C0-BCC9-D018DC0CF6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D6B3E44-7EC8-40C0-BCC9-D018DC0CF6C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
