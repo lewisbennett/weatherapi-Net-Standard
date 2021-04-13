@@ -13,6 +13,8 @@ namespace Sample.Forecast
             var weatherApiClient = new WeatherAPIClient(Environment.GetEnvironmentVariable("API_KEY"));
 
             var request = new ForecastRequestEntity()
+                .WithCityName("London")
+                .WithAlerts(true)
                 .WithDays(5);
 
             var forecastResponse = await weatherApiClient.Forecast.GetForecastAsync(request).ConfigureAwait(false);

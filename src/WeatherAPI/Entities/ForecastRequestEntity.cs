@@ -21,6 +21,11 @@ namespace WeatherAPI.Entities
         /// Gets whether to include air quality data in the response.
         /// </summary>
         public bool IncludeAirQualityData { get; internal set; }
+
+        /// <summary>
+        /// Gets whether to include any weather alerts in the response.
+        /// </summary>
+        public bool IncludeAlerts { get; internal set; }
         #endregion
 
         #region Public Methods
@@ -31,6 +36,17 @@ namespace WeatherAPI.Entities
         public ForecastRequestEntity WithAirQualityData(bool includeAirQualityData)
         {
             IncludeAirQualityData = includeAirQualityData;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Configures the request to include or exclude any weather alerts.
+        /// </summary>
+        /// <param name="includeAlerts">Whether to include any weather alerts.</param>
+        public ForecastRequestEntity WithAlerts(bool includeAlerts)
+        {
+            IncludeAlerts = includeAlerts;
 
             return this;
         }
@@ -83,6 +99,9 @@ namespace WeatherAPI.Entities
 
             if (IncludeAirQualityData)
                 queryParameters.Add("aqi=yes");
+
+            if (IncludeAlerts)
+                queryParameters.Add("alerts=yes");
 
             if (Days.HasValue)
                 queryParameters.Add($"days={Days.Value}");
