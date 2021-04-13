@@ -8,12 +8,17 @@ namespace WeatherAPI.Entities
     {
         #region Properties
         /// <summary>
-        /// Gets or sets the number of days to get the forecast for.
+        /// Gets the number of days to get the forecast for, if any.
         /// </summary>
         public int? Days { get; internal set; }
 
         /// <summary>
-        /// Gets or sets whether to include air quality data in the response.
+        /// Gets the hour to get the forecast for, if any.
+        /// </summary>
+        public int? Hour { get; internal set; }
+
+        /// <summary>
+        /// Gets whether to include air quality data in the response.
         /// </summary>
         public bool IncludeAirQualityData { get; internal set; }
         #endregion
@@ -51,6 +56,17 @@ namespace WeatherAPI.Entities
         }
 
         /// <summary>
+        /// Configures the request to get the forecast for a specific hour.
+        /// </summary>
+        /// <param name="hour">The hour to get the forecast for.</param>
+        public ForecastRequestEntity WithHour(int? hour)
+        {
+            Hour = hour;
+
+            return this;
+        }
+
+        /// <summary>
         /// Configures the request to get the forecast up to a specific date, in unix time. Maximum of 10 days in the future.
         /// </summary>
         /// <param name="dateTime">The future date to get the forecast up until.</param>
@@ -70,6 +86,9 @@ namespace WeatherAPI.Entities
 
             if (Days.HasValue)
                 queryParameters.Add($"days={Days.Value}");
+
+            if (Hour.HasValue)
+                queryParameters.Add($"hour={Hour.Value}");
         }
 
         protected override void ValidateConfiguration()
@@ -78,6 +97,9 @@ namespace WeatherAPI.Entities
 
             if (Days.HasValue && (Days.Value < 1 || Days.Value > 10))
                 throw new IndexOutOfRangeException("Forecast must be between 1 and 10 days in the future.");
+
+            if (Hour.HasValue && (Hour.Value < 0 || Hour.Value > 23))
+                throw new IndexOutOfRangeException("Forecast hour value must be between 0 and 23.");
         }
         #endregion
     }
