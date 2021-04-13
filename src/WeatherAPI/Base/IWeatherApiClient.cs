@@ -24,6 +24,11 @@ namespace WeatherAPI.Base
         /// Gets the realtime API operations.
         /// </summary>
         IRealtimeOperations Realtime { get; }
+
+        /// <summary>
+        /// Gets the time zone API operations.
+        /// </summary>
+        ITimeZoneOperations TimeZones { get; }
         #endregion
     }
 }

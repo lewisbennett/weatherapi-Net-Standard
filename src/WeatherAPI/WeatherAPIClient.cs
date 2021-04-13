@@ -12,6 +12,7 @@ namespace WeatherAPI
         private readonly IForecastOperations _forecastOperations;
         private readonly IIPLookupOperations _ipLookupOperations;
         private readonly IRealtimeOperations _realtimeOperations;
+        private readonly ITimeZoneOperations _timeZoneOperations;
         #endregion
 
         #region Properties
@@ -34,6 +35,11 @@ namespace WeatherAPI
         /// Gets the realtime API operations.
         /// </summary>
         public IRealtimeOperations Realtime => _realtimeOperations;
+
+        /// <summary>
+        /// Gets the time zone API operations.
+        /// </summary>
+        public ITimeZoneOperations TimeZones => _timeZoneOperations;
         #endregion
 
         #region Protected Methods
@@ -56,6 +62,11 @@ namespace WeatherAPI
         {
             return new RealtimeOperations(this);
         }
+
+        protected virtual ITimeZoneOperations ConstructTimeZoneOperations()
+        {
+            return new TimeZoneOperations(this);
+        }
         #endregion
 
         #region Constructors
@@ -71,6 +82,7 @@ namespace WeatherAPI
             _forecastOperations = ConstructForecastOperations();
             _ipLookupOperations = ConstructIPLookupOperations();
             _realtimeOperations = ConstructRealtimeOperations();
+            _timeZoneOperations = ConstructTimeZoneOperations();
         }
         #endregion
     }
