@@ -67,9 +67,9 @@ namespace WeatherAPI.Base
         /// </summary>
         /// <param name="method">The request method.</param>
         /// <param name="path">The request path.</param>
-        /// <param name="content">The request content.</param>
         /// <param name="queryParameters">The query parameters, if any.</param>
-        Task<TResponse> RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, HttpContent content, CancellationToken cancellationToken, params string[] queryParameters);
+        /// <param name="content">The request content.</param>
+        Task<TResponse> RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, string[] queryParameters, HttpContent content, CancellationToken cancellationToken);
         #endregion
     }
 }

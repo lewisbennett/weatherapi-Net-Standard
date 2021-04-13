@@ -21,14 +21,14 @@ namespace WeatherAPI.Operations.Base
         /// <summary>
         /// Gets the current astronomy information.
         /// </summary>
-        /// <param name="query">The request configuration.</param>
-        Task<AstronomyResponseEntity> GetAstronomyAsync(RequestEntity query, CancellationToken cancellationToken = default);
+        /// <param name="request">The request configuration.</param>
+        Task<AstronomyResponseEntity> GetAstronomyAsync(RequestEntity request, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current astronomy information.
         /// </summary>
-        /// <param name="query">The request configuration.</param>
-        Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
+        /// <param name="request">The request configuration.</param>
+        Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity request, CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class;
         #endregion
     }

@@ -24,26 +24,26 @@ namespace WeatherAPI.Operations
         public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class
         {
-            return ((IAstronomyOperations)this).GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity.CreateFromAutoIP(), cancellationToken);
+            return ((IAstronomyOperations)this).GetAstronomyAsync<TAstronomyResponseEntity>(new RequestEntity().WithAutoIP(), cancellationToken);
         }
 
         /// <summary>
         /// Gets the current astronomy information.
         /// </summary>
-        /// <param name="query">The request configuration.</param>
-        public virtual Task<AstronomyResponseEntity> GetAstronomyAsync(RequestEntity query, CancellationToken cancellationToken = default)
+        /// <param name="request">The request configuration.</param>
+        public virtual Task<AstronomyResponseEntity> GetAstronomyAsync(RequestEntity request, CancellationToken cancellationToken = default)
         {
-            return ((IAstronomyOperations)this).GetAstronomyAsync<AstronomyResponseEntity>(query, cancellationToken);
+            return ((IAstronomyOperations)this).GetAstronomyAsync<AstronomyResponseEntity>(request, cancellationToken);
         }
 
         /// <summary>
         /// Gets the current astronomy information.
         /// </summary>
-        /// <param name="query">The request configuration.</param>
-        public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
+        /// <param name="request">The request configuration.</param>
+        public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity request, CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class
         {
-            return ApiRequestor.RequestJsonSerializedAsync<TAstronomyResponseEntity>(HttpMethod.Get, "astronomy.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter);
+            return ApiRequestor.RequestJsonSerializedAsync<TAstronomyResponseEntity>(HttpMethod.Get, "astronomy.json", request.GetQueryParameters(), null, cancellationToken);
         }
         #endregion
 

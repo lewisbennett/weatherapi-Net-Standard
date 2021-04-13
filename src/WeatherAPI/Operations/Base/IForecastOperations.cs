@@ -19,44 +19,16 @@ namespace WeatherAPI.Operations.Base
             where TForecastResponseEntity : class;
 
         /// <summary>
-        /// Gets the forecast using automatic location.
+        /// Gets the forecast.
         /// </summary>
-        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<ForecastResponseEntity> GetForecastAsync(bool includeAirQualityData, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Gets the forecast using automatic location.
-        /// </summary>
-        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(bool includeAirQualityData, CancellationToken cancellationToken = default)
-            where TForecastResponseEntity : class;
+        /// <param name="request">The request configuration.</param>
+        Task<ForecastResponseEntity> GetForecastAsync(ForecastRequestEntity request, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
-        /// <param name="query">The request configuration.</param>
-        Task<ForecastResponseEntity> GetForecastAsync(RequestEntity query, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Gets the forecast.
-        /// </summary>
-        /// <param name="query">The request configuration.</param>
-        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
-            where TForecastResponseEntity : class;
-
-        /// <summary>
-        /// Gets the forecast.
-        /// </summary>
-        /// <param name="query">The request configuration.</param>
-        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<ForecastResponseEntity> GetForecastAsync(RequestEntity query, bool includeAirQualityData, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Gets the forecast.
-        /// </summary>
-        /// <param name="query">The request configuration.</param>
-        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestEntity query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+        /// <param name="request">The request configuration.</param>
+        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(ForecastRequestEntity request, CancellationToken cancellationToken = default)
             where TForecastResponseEntity : class;
         #endregion
     }

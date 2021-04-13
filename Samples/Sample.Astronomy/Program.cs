@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using WeatherAPI;
+using WeatherAPI.Entities;
 
 namespace Sample.Astronomy
 {
@@ -11,7 +12,8 @@ namespace Sample.Astronomy
             // Create a new WeatherAPI API client with API key.
             var weatherApiClient = new WeatherAPIClient(Environment.GetEnvironmentVariable("API_KEY"));
 
-            var request = RequestEntity.CreateFromCityName("London");
+            var request = new RequestEntity()
+                .WithCityName("London");
 
             var astronomyResponse = await weatherApiClient.Astronomy.GetAstronomyAsync(request).ConfigureAwait(false);
 

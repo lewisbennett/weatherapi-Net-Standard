@@ -143,9 +143,9 @@ namespace WeatherAPI.Base
         /// </summary>
         /// <param name="method">The request method.</param>
         /// <param name="path">The request path.</param>
+        /// <param name="queryParameters">The query parameters, if any.</param>
         /// <param name="content">The request content.</param>
-        /// <param name="queryParamaters">The query parameters, if any.</param>
-        async Task<TResponse> IApiRequestor.RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, HttpContent content, CancellationToken cancellationToken, params string[] queryParameters)
+        async Task<TResponse> IApiRequestor.RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, string[] queryParameters, HttpContent content, CancellationToken cancellationToken)
         {
             var response = await ((IApiRequestor)this).RequestAsync(method, path, queryParameters, content, cancellationToken).ConfigureAwait(false);
 
