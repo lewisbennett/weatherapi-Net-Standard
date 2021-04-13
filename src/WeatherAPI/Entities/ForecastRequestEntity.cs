@@ -10,7 +10,7 @@ namespace WeatherAPI.Entities
         /// <summary>
         /// Gets or sets the number of days to get the forecast for.
         /// </summary>
-        public int? Days { get; set; }
+        public int? Days { get; internal set; }
 
         /// <summary>
         /// Gets or sets whether to include air quality data in the response.
@@ -28,6 +28,15 @@ namespace WeatherAPI.Entities
             IncludeAirQualityData = includeAirQualityData;
 
             return this;
+        }
+
+        /// <summary>
+        /// Configures the request to get the forecast up to a specific date. Maximum of 10 days in the future.
+        /// </summary>
+        /// <param name="dateTime">The future date to get the forecast up until.</param>
+        public ForecastRequestEntity WithDate(DateTime? dateTime)
+        {
+            return WithDays(dateTime?.Subtract(DateTime.Now).Days);
         }
 
         /// <summary>
