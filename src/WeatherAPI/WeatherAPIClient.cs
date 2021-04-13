@@ -10,6 +10,7 @@ namespace WeatherAPI
         #region Fields
         private readonly IAstronomyOperations _astronomyOperations;
         private readonly IForecastOperations _forecastOperations;
+        private readonly IHistoryOperations _historyOperations;
         private readonly IIPLookupOperations _ipLookupOperations;
         private readonly IRealtimeOperations _realtimeOperations;
         private readonly ISportsOperations _sportsOperations;
@@ -26,6 +27,11 @@ namespace WeatherAPI
         /// Gets the forecast API operations.
         /// </summary>
         public IForecastOperations Forecast => _forecastOperations;
+
+        /// <summary>
+        /// Gets the history API operations.
+        /// </summary>
+        public IHistoryOperations History => _historyOperations;
 
         /// <summary>
         /// Gets the IP address lookup operations.
@@ -57,6 +63,11 @@ namespace WeatherAPI
         protected virtual IForecastOperations ConstructForecastOperations()
         {
             return new ForecastOperations(this);
+        }
+
+        protected virtual IHistoryOperations ConstructHistoryOperations()
+        {
+            return new HistoryOperations(this);
         }
 
         protected virtual IIPLookupOperations ConstructIPLookupOperations()
@@ -91,6 +102,7 @@ namespace WeatherAPI
         {
             _astronomyOperations = ConstructAstronomyOperations();
             _forecastOperations = ConstructForecastOperations();
+            _historyOperations = ConstructHistoryOperations();
             _ipLookupOperations = ConstructIPLookupOperations();
             _realtimeOperations = ConstructRealtimeOperations();
             _sportsOperations = ConstructSportsOperations();

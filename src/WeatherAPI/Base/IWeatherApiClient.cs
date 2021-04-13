@@ -16,6 +16,11 @@ namespace WeatherAPI.Base
         IForecastOperations Forecast { get; }
 
         /// <summary>
+        /// Gets the history API operations.
+        /// </summary>
+        IHistoryOperations History { get; }
+
+        /// <summary>
         /// Gets the IP address lookup operations.
         /// </summary>
         IIPLookupOperations IPLookup { get; }
