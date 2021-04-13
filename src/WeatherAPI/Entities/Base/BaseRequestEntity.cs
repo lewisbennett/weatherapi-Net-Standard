@@ -48,5 +48,13 @@ namespace WeatherAPI.Entities.Base
                 throw new InvalidOperationException("The location for the request is invalid.");
         }
         #endregion
+
+        #region Constructors
+        protected BaseRequestEntity()
+        {
+            // Default query for location.
+            this.WithAutoIP();
+        }
+        #endregion
     }
 }
