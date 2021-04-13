@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using WeatherAPI;
-using WeatherAPI.Entities;
 
 namespace Sample.Realtime
 {
@@ -16,10 +15,8 @@ namespace Sample.Realtime
 
             Console.WriteLine($"The weather in {currentWeather.Location.Name}, {currentWeather.Location.Country} is {currentWeather.Current.TemperatureC} degrees C and {currentWeather.Current.Condition.Description}!");
 
-            var request = new RealtimeRequestEntity.Builder()
-                .WithAirQualityData(true)
-                .WithCityName("London")
-                .Build();
+            var request = RequestQuery.CreateFromCityName("London")
+                .WithLanguage("fr");
 
             var londonWeather = await weatherApiClient.Realtime.GetCurrentAsync(request).ConfigureAwait(false);
 

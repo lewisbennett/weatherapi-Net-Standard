@@ -15,20 +15,20 @@ namespace WeatherAPI.Operations.Base
         /// <summary>
         /// Gets the forecast using automatic location.
         /// </summary>
-        Task<TForecastEntity> GetForecastEntity<TForecastEntity>(CancellationToken cancellationToken = default)
+        Task<TForecastEntity> GetForecastAsync<TForecastEntity>(CancellationToken cancellationToken = default)
             where TForecastEntity : class;
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
-        /// <param name="request">The request configuration.</param>
-        Task<ForecastEntity> GetForecastAsync(ForecastRequestEntity request, CancellationToken cancellationToken = default);
+        /// <param name="query">The request configuration.</param>
+        Task<ForecastEntity> GetForecastAsync(RequestQuery query, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
-        /// <param name="request">The request configuration.</param>
-        Task<TForecastEntity> GetForecastAsync<TForecastEntity>(ForecastRequestEntity request, CancellationToken cancellationToken = default)
+        /// <param name="query">The request configuration.</param>
+        Task<TForecastEntity> GetForecastAsync<TForecastEntity>(RequestQuery query, CancellationToken cancellationToken = default)
             where TForecastEntity : class;
         #endregion
     }

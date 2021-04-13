@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -56,8 +57,14 @@ namespace WeatherAPI.Base
             path = $"{BaseApiUri}{path}?key={ApiKey}";
 
             // Add any provided query parameters.
-            if (queryParameters != null && queryParameters.Length > 0)
-                path += $"&{string.Join("&", queryParameters)}";
+            if (queryParameters != null)
+            {
+                // Remove potentially empty strings.
+                queryParameters = queryParameters.Where(q => !string.IsNullOrWhiteSpace(q)).ToArray();
+
+                if (queryParameters.Length > 0)
+                    path += $"&{string.Join("&", queryParameters)}";
+            }
 
             // Build the request using provided HTTP method, and build the request URI using the base API URI, provided path, and validated API key.
             var request = new HttpRequestMessage(method, path);
@@ -137,7 +144,8 @@ namespace WeatherAPI.Base
         /// <param name="method">The request method.</param>
         /// <param name="path">The request path.</param>
         /// <param name="content">The request content.</param>
-        async Task<TResponse> IApiRequestor.RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, string[] queryParameters, HttpContent content, CancellationToken cancellationToken)
+        /// <param name="queryParamaters">The query parameters, if any.</param>
+        async Task<TResponse> IApiRequestor.RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, HttpContent content, CancellationToken cancellationToken, params string[] queryParameters)
         {
             var response = await ((IApiRequestor)this).RequestAsync(method, path, queryParameters, content, cancellationToken).ConfigureAwait(false);
 

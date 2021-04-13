@@ -24,26 +24,66 @@ namespace WeatherAPI.Operations
         public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(CancellationToken cancellationToken = default)
             where TRealtimeResponseEntity : class
         {
-            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(new RealtimeRequestEntity.Builder().Build(), cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(false, cancellationToken);
         }
 
         /// <summary>
-        /// Gets the current weather condition.
+        /// Gets the current weather condition using automatic location.
         /// </summary>
-        /// <param name="request">The request configuration.</param>
-        public virtual Task<RealtimeResponseEntity> GetCurrentAsync(RealtimeRequestEntity request, CancellationToken cancellationToken = default)
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<RealtimeResponseEntity> GetCurrentAsync(bool includeAirQualityData, CancellationToken cancellationToken = default)
         {
-            return ((IRealtimeOperations)this).GetCurrentAsync<RealtimeResponseEntity>(request, cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<RealtimeResponseEntity>(includeAirQualityData, cancellationToken);
         }
 
         /// <summary>
-        /// Gets the current weather condition.
+        /// Gets the current weather condition using automatic location.
         /// </summary>
-        /// <param name="request">The request configuration.</param>
-        public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RealtimeRequestEntity request, CancellationToken cancellationToken = default)
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(bool includeAirQualityData, CancellationToken cancellationToken = default)
             where TRealtimeResponseEntity : class
         {
-            return ApiRequestor.RequestJsonSerializedAsync<TRealtimeResponseEntity>(HttpMethod.Get, "current.json", request.GetParameters(), null, cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(RequestQuery.CreateFromAutoIP(), includeAirQualityData, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the current weather condition.
+        /// </summary>
+        /// <param name="query">The request configuration.</param>
+        public virtual Task<RealtimeResponseEntity> GetCurrentAsync(RequestQuery query, CancellationToken cancellationToken = default)
+        {
+            return ((IRealtimeOperations)this).GetCurrentAsync<RealtimeResponseEntity>(query, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the current weather condition.
+        /// </summary>
+        /// <param name="query">The request configuration.</param>
+        public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
+            where TRealtimeResponseEntity : class
+        {
+            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(query, false, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the current weather condition.
+        /// </summary>
+        /// <param name="query">The request configuration.</param>
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<RealtimeResponseEntity> GetCurrentAsync(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+        {
+            return ((IRealtimeOperations)this).GetCurrentAsync<RealtimeResponseEntity>(query, includeAirQualityData, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the current weather condition.
+        /// </summary>
+        /// <param name="query">The request configuration.</param>
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+            where TRealtimeResponseEntity : class
+        {
+            return ApiRequestor.RequestJsonSerializedAsync<TRealtimeResponseEntity>(HttpMethod.Get, "current.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter, $"aqi={(includeAirQualityData ? "yes" : "no")}");
         }
         #endregion
 

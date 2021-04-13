@@ -49,18 +49,18 @@ namespace WeatherAPI.Base
         /// </summary>
         /// <param name="method">The request method.</param>
         /// <param name="path">The request path.</param>
-        /// <param name="queryParamaters">The query parameters, if any.</param>
+        /// <param name="queryParameters">The query parameters, if any.</param>
         /// <param name="content">The request content, if any.</param>
-        Task<HttpResponseMessage> RequestAsync<TRequest>(HttpMethod method, string path, string[] queryParamaters, TRequest content, CancellationToken cancellationToken);
+        Task<HttpResponseMessage> RequestAsync<TRequest>(HttpMethod method, string path, string[] queryParameters, TRequest content, CancellationToken cancellationToken);
 
         /// <summary>
         /// Sends a REST request to the API. Includes retry logic.
         /// </summary>
         /// <param name="method">The request method.</param>
         /// <param name="path">The request path.</param>
-        /// <param name="queryParamaters">The query parameters, if any.</param>
+        /// <param name="queryParameters">The query parameters, if any.</param>
         /// <param name="content">The request content, if any.</param>
-        Task<HttpResponseMessage> RequestAsync(HttpMethod method, string path, string[] queryParamaters, HttpContent content, CancellationToken cancellationToken);
+        Task<HttpResponseMessage> RequestAsync(HttpMethod method, string path, string[] queryParameters, HttpContent content, CancellationToken cancellationToken);
 
         /// <summary>
         /// Request a serialized object response with content.
@@ -68,7 +68,8 @@ namespace WeatherAPI.Base
         /// <param name="method">The request method.</param>
         /// <param name="path">The request path.</param>
         /// <param name="content">The request content.</param>
-        Task<TResponse> RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, string[] queryParameters, HttpContent content, CancellationToken cancellationToken);
+        /// <param name="queryParameters">The query parameters, if any.</param>
+        Task<TResponse> RequestJsonSerializedAsync<TResponse>(HttpMethod method, string path, HttpContent content, CancellationToken cancellationToken, params string[] queryParameters);
         #endregion
     }
 }
