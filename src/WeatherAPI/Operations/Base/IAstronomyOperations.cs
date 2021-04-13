@@ -22,13 +22,13 @@ namespace WeatherAPI.Operations.Base
         /// Gets the current astronomy information.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        Task<AstronomyResponseEntity> GetAstronomyAsync(RequestQuery query, CancellationToken cancellationToken = default);
+        Task<AstronomyResponseEntity> GetAstronomyAsync(RequestEntity query, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current astronomy information.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
+        Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class;
         #endregion
     }

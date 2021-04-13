@@ -35,13 +35,13 @@ namespace WeatherAPI.Operations.Base
         /// Gets the forecast.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        Task<ForecastResponseEntity> GetForecastAsync(RequestQuery query, CancellationToken cancellationToken = default);
+        Task<ForecastResponseEntity> GetForecastAsync(RequestEntity query, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
+        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
             where TForecastResponseEntity : class;
 
         /// <summary>
@@ -49,14 +49,14 @@ namespace WeatherAPI.Operations.Base
         /// </summary>
         /// <param name="query">The request configuration.</param>
         /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<ForecastResponseEntity> GetForecastAsync(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default);
+        Task<ForecastResponseEntity> GetForecastAsync(RequestEntity query, bool includeAirQualityData, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the forecast.
         /// </summary>
         /// <param name="query">The request configuration.</param>
         /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+        Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestEntity query, bool includeAirQualityData, CancellationToken cancellationToken = default)
             where TForecastResponseEntity : class;
         #endregion
     }

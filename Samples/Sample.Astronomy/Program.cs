@@ -11,7 +11,7 @@ namespace Sample.Astronomy
             // Create a new WeatherAPI API client with API key.
             var weatherApiClient = new WeatherAPIClient(Environment.GetEnvironmentVariable("API_KEY"));
 
-            var request = RequestQuery.CreateFromCityName("London");
+            var request = RequestEntity.CreateFromCityName("London");
 
             var astronomyResponse = await weatherApiClient.Astronomy.GetAstronomyAsync(request).ConfigureAwait(false);
 

@@ -24,14 +24,14 @@ namespace WeatherAPI.Operations
         public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class
         {
-            return ((IAstronomyOperations)this).GetAstronomyAsync<TAstronomyResponseEntity>(RequestQuery.CreateFromAutoIP(), cancellationToken);
+            return ((IAstronomyOperations)this).GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity.CreateFromAutoIP(), cancellationToken);
         }
 
         /// <summary>
         /// Gets the current astronomy information.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        public virtual Task<AstronomyResponseEntity> GetAstronomyAsync(RequestQuery query, CancellationToken cancellationToken = default)
+        public virtual Task<AstronomyResponseEntity> GetAstronomyAsync(RequestEntity query, CancellationToken cancellationToken = default)
         {
             return ((IAstronomyOperations)this).GetAstronomyAsync<AstronomyResponseEntity>(query, cancellationToken);
         }
@@ -40,7 +40,7 @@ namespace WeatherAPI.Operations
         /// Gets the current astronomy information.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
+        public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class
         {
             return ApiRequestor.RequestJsonSerializedAsync<TAstronomyResponseEntity>(HttpMethod.Get, "astronomy.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter);

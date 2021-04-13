@@ -17,7 +17,7 @@ namespace Sample.Realtime
 
             Console.WriteLine(string.Format(stringFormat, currentWeather.Location.Name, currentWeather.Location.Country, currentWeather.Current.TemperatureC, currentWeather.Current.Condition.Description));
 
-            var request = RequestQuery.CreateFromCityName("London")
+            var request = RequestEntity.CreateFromCityName("London")
                 .WithLanguage("fr");
 
             var londonWeather = await weatherApiClient.Realtime.GetCurrentAsync(request, true).ConfigureAwait(false);

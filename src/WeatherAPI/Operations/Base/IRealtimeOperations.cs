@@ -35,13 +35,13 @@ namespace WeatherAPI.Operations.Base
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        Task<RealtimeResponseEntity> GetCurrentAsync(RequestQuery query, CancellationToken cancellationToken = default);
+        Task<RealtimeResponseEntity> GetCurrentAsync(RequestEntity query, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="query">The request configuration.</param>
-        Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
+        Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestEntity query, CancellationToken cancellationToken = default)
             where TRealtimeResponseEntity : class;
 
         /// <summary>
@@ -49,14 +49,14 @@ namespace WeatherAPI.Operations.Base
         /// </summary>
         /// <param name="query">The request configuration.</param>
         /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<RealtimeResponseEntity> GetCurrentAsync(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default);
+        Task<RealtimeResponseEntity> GetCurrentAsync(RequestEntity query, bool includeAirQualityData, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current weather condition.
         /// </summary>
         /// <param name="query">The request configuration.</param>
         /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
-        Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+        Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(RequestEntity query, bool includeAirQualityData, CancellationToken cancellationToken = default)
             where TRealtimeResponseEntity : class;
         #endregion
     }
