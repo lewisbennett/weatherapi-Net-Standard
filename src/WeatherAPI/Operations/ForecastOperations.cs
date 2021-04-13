@@ -28,6 +28,25 @@ namespace WeatherAPI.Operations
         }
 
         /// <summary>
+        /// Gets the forecast using automatic location.
+        /// </summary>
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<ForecastResponseEntity> GetForecastAsync(bool includeAirQualityData, CancellationToken cancellationToken = default)
+        {
+            return ((IForecastOperations)this).GetForecastAsync<ForecastResponseEntity>(includeAirQualityData, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the forecast using automatic location.
+        /// </summary>
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(bool includeAirQualityData, CancellationToken cancellationToken = default)
+            where TForecastResponseEntity : class
+        {
+            return ((IForecastOperations)this).GetForecastAsync<TForecastResponseEntity>(RequestQuery.CreateFromAutoIP(), includeAirQualityData, cancellationToken);
+        }
+
+        /// <summary>
         /// Gets the forecast.
         /// </summary>
         /// <param name="query">The request configuration.</param>
@@ -43,7 +62,28 @@ namespace WeatherAPI.Operations
         public virtual Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestQuery query, CancellationToken cancellationToken = default)
             where TForecastResponseEntity : class
         {
-            return ApiRequestor.RequestJsonSerializedAsync<TForecastResponseEntity>(HttpMethod.Get, "forecast.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter);
+            return ((IForecastOperations)this).GetForecastAsync<TForecastResponseEntity>(query, false, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the forecast.
+        /// </summary>
+        /// <param name="query">The request configuration.</param>
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<ForecastResponseEntity> GetForecastAsync(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+        {
+            return ((IForecastOperations)this).GetForecastAsync<ForecastResponseEntity>(query, includeAirQualityData, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the forecast.
+        /// </summary>
+        /// <param name="query">The request configuration.</param>
+        /// <param name="includeAirQualityData">Whether to include air quality data in the response.</param>
+        public virtual Task<TForecastResponseEntity> GetForecastAsync<TForecastResponseEntity>(RequestQuery query, bool includeAirQualityData, CancellationToken cancellationToken = default)
+            where TForecastResponseEntity : class
+        {
+            return ApiRequestor.RequestJsonSerializedAsync<TForecastResponseEntity>(HttpMethod.Get, "forecast.json", null, cancellationToken, query.LanguageQueryParameter, query.QueryQueryParameter, $"aqi={(includeAirQualityData ? "yes" : "no")}");
         }
         #endregion
 
