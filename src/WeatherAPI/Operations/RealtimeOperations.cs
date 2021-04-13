@@ -24,7 +24,7 @@ namespace WeatherAPI.Operations
         public virtual Task<TRealtimeResponseEntity> GetCurrentAsync<TRealtimeResponseEntity>(CancellationToken cancellationToken = default)
             where TRealtimeResponseEntity : class
         {
-            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(new RealtimeRequestEntity().WithAutoIP(), cancellationToken);
+            return ((IRealtimeOperations)this).GetCurrentAsync<TRealtimeResponseEntity>(new RealtimeRequestEntity(), cancellationToken);
         }
 
         /// <summary>

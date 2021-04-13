@@ -24,7 +24,7 @@ namespace WeatherAPI.Operations
         public virtual Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(CancellationToken cancellationToken = default)
             where TAstronomyResponseEntity : class
         {
-            return ((IAstronomyOperations)this).GetAstronomyAsync<TAstronomyResponseEntity>(new RequestEntity().WithAutoIP(), cancellationToken);
+            return ((IAstronomyOperations)this).GetAstronomyAsync<TAstronomyResponseEntity>(new RequestEntity(), cancellationToken);
         }
 
         /// <summary>
