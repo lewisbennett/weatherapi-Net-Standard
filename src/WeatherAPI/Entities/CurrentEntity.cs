@@ -52,7 +52,7 @@ namespace WeatherAPI.Entities
         /// Gets or sets the humidity, as a percentage (0-100%).
         /// </summary>
         [JsonProperty("humidity")]
-        public int Humidity { get; set; }
+        public float Humidity { get; set; }
 
         /// <summary>
         /// Gets or sets whether it is daytime or nighttime.
