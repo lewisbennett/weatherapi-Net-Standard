@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace WeatherAPI.Entities
 {
@@ -7,40 +6,10 @@ namespace WeatherAPI.Entities
     {
         #region Properties
         /// <summary>
-        /// Gets or sets the moon illumination, as a percentage (0-100%).
+        /// Gets or sets the astronomy information.
         /// </summary>
-        [JsonProperty("moon_illumination")]
-        public int MoonIllumination { get; set; }
-
-        /// <summary>
-        /// Gets or sets the moon phase.
-        /// </summary>
-        [JsonProperty("moon_phase")]
-        public string MoonPhase { get; set; }
-
-        /// <summary>
-        /// Gets or sets the moonrise time.
-        /// </summary>
-        [JsonProperty("moonrise")]
-        public DateTime Moonrise { get; set; }
-
-        /// <summary>
-        /// Gets or sets the moonset time.
-        /// </summary>
-        [JsonProperty("moonset")]
-        public DateTime Moonset { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sunrise time.
-        /// </summary>
-            [JsonProperty("sunrise")]
-        public DateTime Sunrise { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sunset time.
-        /// </summary>
-        [JsonProperty("sunset")]
-        public DateTime Sunset { get; set; }
+        [JsonProperty("astro")]
+        public AstroEntity Astro { get; set; }
         #endregion
     }
 }
