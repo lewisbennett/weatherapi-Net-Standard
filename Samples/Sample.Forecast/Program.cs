@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using WeatherAPI;
+using WeatherAPI.Entities;
 
 namespace Sample.Forecast
 {
@@ -11,7 +12,10 @@ namespace Sample.Forecast
             // Create a new WeatherAPI API client with API key.
             var weatherApiClient = new WeatherAPIClient(Environment.GetEnvironmentVariable("API_KEY"));
 
-            var forecastResponse = await weatherApiClient.Forecast.GetForecastAsync().ConfigureAwait(false);
+            var request = new ForecastRequestEntity()
+                .WithDays(5);
+
+            var forecastResponse = await weatherApiClient.Forecast.GetForecastAsync(request).ConfigureAwait(false);
 
             var stringFormat = "The forecast in {0}, {1} is:";
 

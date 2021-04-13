@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WeatherAPI.Entities.Base;
 
 namespace WeatherAPI.Entities
@@ -6,6 +7,11 @@ namespace WeatherAPI.Entities
     public class ForecastRequestEntity : BaseRequestEntity
     {
         #region Properties
+        /// <summary>
+        /// Gets or sets the number of days to get the forecast for.
+        /// </summary>
+        public int? Days { get; set; }
+
         /// <summary>
         /// Gets or sets whether to include air quality data in the response.
         /// </summary>
@@ -23,6 +29,17 @@ namespace WeatherAPI.Entities
 
             return this;
         }
+
+        /// <summary>
+        /// Configures the request to get the forecast for a specific number of days. Minimum 1, maximum 10.
+        /// </summary>
+        /// <param name="days">The number of days to get the forecast for, or null.</param>
+        public ForecastRequestEntity WithDays(int? days)
+        {
+            Days = days;
+
+            return this;
+        }
         #endregion
 
         #region Protected Methods
@@ -32,6 +49,17 @@ namespace WeatherAPI.Entities
 
             if (IncludeAirQualityData)
                 queryParameters.Add("aqi=yes");
+
+            if (Days.HasValue)
+                queryParameters.Add($"days={Days.Value}");
+        }
+
+        protected override void ValidateConfiguration()
+        {
+            base.ValidateConfiguration();
+
+            if (Days.HasValue && (Days.Value < 1 || Days.Value > 10))
+                throw new IndexOutOfRangeException("Forecast days value must be between 1 and 10.");
         }
         #endregion
     }
