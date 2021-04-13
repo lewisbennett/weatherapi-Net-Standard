@@ -8,10 +8,16 @@ namespace WeatherAPI
     public class WeatherAPIClient : BaseApiClient, IWeatherApiClient
     {
         #region Fields
+        private readonly IForecastOperations _forecastOperations;
         private readonly IRealtimeOperations _realtimeOperations;
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Gets the forecast API operations.
+        /// </summary>
+        public IForecastOperations Forecast => _forecastOperations;
+
         /// <summary>
         /// Gets the realtime API operations.
         /// </summary>
@@ -19,6 +25,11 @@ namespace WeatherAPI
         #endregion
 
         #region Protected Methods
+        protected virtual IForecastOperations ConstructForecastOperations()
+        {
+            return new ForecastOperations(this);
+        }
+
         protected virtual IRealtimeOperations ConstructRealtimeOperations()
         {
             return new RealtimeOperations(this);
@@ -34,6 +45,7 @@ namespace WeatherAPI
         public WeatherAPIClient(string apiKey, Uri baseApiUri = null)
             : base(apiKey, baseApiUri)
         {
+            _forecastOperations = ConstructForecastOperations();
             _realtimeOperations = ConstructRealtimeOperations();
         }
         #endregion

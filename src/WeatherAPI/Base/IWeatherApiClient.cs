@@ -6,6 +6,11 @@ namespace WeatherAPI.Base
     {
         #region Properties
         /// <summary>
+        /// Gets the forecast API operations.
+        /// </summary>
+        IForecastOperations Forecast { get; }
+
+        /// <summary>
         /// Gets the realtime API operations.
         /// </summary>
         IRealtimeOperations Realtime { get; }
