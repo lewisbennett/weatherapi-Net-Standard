@@ -6,6 +6,11 @@ namespace WeatherAPI.Base
     {
         #region Properties
         /// <summary>
+        /// Gets the astronomy API operations.
+        /// </summary>
+        IAstronomyOperations Astronomy { get; }
+
+        /// <summary>
         /// Gets the forecast API operations.
         /// </summary>
         IForecastOperations Forecast { get; }
