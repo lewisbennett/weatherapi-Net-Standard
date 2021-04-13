@@ -36,7 +36,7 @@ namespace WeatherAPI.Entities
         /// <param name="dateTime">The future date to get the forecast up until.</param>
         public ForecastRequestEntity WithDate(DateTime? dateTime)
         {
-            return WithDays(dateTime?.Subtract(DateTime.Now).Days);
+            return WithDays(dateTime?.Date.Subtract(DateTime.Today).Days);
         }
 
         /// <summary>
@@ -48,6 +48,15 @@ namespace WeatherAPI.Entities
             Days = days;
 
             return this;
+        }
+
+        /// <summary>
+        /// Configures the request to get the forecast up to a specific date, in unix time. Maximum of 10 days in the future.
+        /// </summary>
+        /// <param name="dateTime">The future date to get the forecast up until.</param>
+        public ForecastRequestEntity WithUnixDate(long? unixDate)
+        {
+            return unixDate.HasValue ? WithDate(new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(unixDate.Value)) : this;
         }
         #endregion
 
@@ -68,7 +77,7 @@ namespace WeatherAPI.Entities
             base.ValidateConfiguration();
 
             if (Days.HasValue && (Days.Value < 1 || Days.Value > 10))
-                throw new IndexOutOfRangeException("Forecast days value must be between 1 and 10.");
+                throw new IndexOutOfRangeException("Forecast must be between 1 and 10 days in the future.");
         }
         #endregion
     }
