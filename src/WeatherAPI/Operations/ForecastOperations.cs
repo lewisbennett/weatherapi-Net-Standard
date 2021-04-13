@@ -9,7 +9,7 @@ namespace WeatherAPI.Operations
 {
     public class ForecastOperations : BaseOperations, IForecastOperations
     {
-        #region Methods
+        #region Public Methods
         /// <summary>
         /// Gets the forecast using automatic location.
         /// </summary>

@@ -36,6 +36,18 @@ namespace WeatherAPI.Entities
         public float AverageVisibilityMi { get; set; }
 
         /// <summary>
+        /// Gets or sets the chance of rain, as a percentage (0-100%).
+        /// </summary>
+        [JsonProperty("daily_chance_of_rain")]
+        public int ChanceOfRain { get; set; }
+
+        /// <summary>
+        /// Gets or sets the chance of snow, as a percentage (0-100%).
+        /// </summary>
+        [JsonProperty("daily_chance_of_snow")]
+        public int ChanceOfSnow { get; set; }
+
+        /// <summary>
         /// Gets or sets the weather condition information.
         /// </summary>
         [JsonProperty("condition")]
@@ -93,6 +105,18 @@ namespace WeatherAPI.Entities
         /// </summary>
         [JsonProperty("uv")]
         public float UV { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether it will rain.
+        /// </summary>
+        [JsonProperty("daily_will_it_rain")]
+        public bool WillItRain { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether it will snow.
+        /// </summary>
+        [JsonProperty("daily_will_it_snow")]
+        public bool WillItSnow { get; set; }
         #endregion
     }
 }
