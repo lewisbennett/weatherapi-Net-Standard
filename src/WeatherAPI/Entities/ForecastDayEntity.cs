@@ -7,6 +7,12 @@ namespace WeatherAPI.Entities
     {
         #region Properties
         /// <summary>
+        /// Gets or sets the astronomy information for the day.
+        /// </summary>
+        [JsonProperty("astro")]
+        public AstronomyEntity Astronomy { get; set; }
+
+        /// <summary>
         /// Gets or sets the date.
         /// </summary>
         [JsonProperty("date")]
