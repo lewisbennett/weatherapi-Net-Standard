@@ -9,12 +9,12 @@ namespace WeatherAPI.Operations
 {
     public class SearchOperations : BaseOperations, ISearchOperations
     {
-        #region Methods
+        #region Public Methods
         /// <summary>
         /// Searches for a location based on a query.
         /// </summary>
         /// <param name="query">The location query.</param>
-        public virtual Task<SearchEntity> SearchAsync(string query, CancellationToken cancellationToken = default)
+        public virtual Task<SearchEntity[]> SearchAsync(string query, CancellationToken cancellationToken = default)
         {
             return ((ISearchOperations)this).SearchAsync<SearchEntity>(query, cancellationToken);
         }
@@ -23,9 +23,9 @@ namespace WeatherAPI.Operations
         /// Searches for a location based on a query.
         /// </summary>
         /// <param name="query">The location query.</param>
-        public virtual Task<TSearchEntity> SearchAsync<TSearchEntity>(string query, CancellationToken cancellationToken = default)
+        public virtual Task<TSearchEntity[]> SearchAsync<TSearchEntity>(string query, CancellationToken cancellationToken = default)
         {
-            return ApiRequestor.RequestJsonSerializedAsync<TSearchEntity>(HttpMethod.Get, "search.json", new[] { $"q={query}" }, null, cancellationToken);
+            return ApiRequestor.RequestJsonSerializedAsync<TSearchEntity[]>(HttpMethod.Get, "search.json", new[] { $"q={query}" }, null, cancellationToken);
         }
         #endregion
 
