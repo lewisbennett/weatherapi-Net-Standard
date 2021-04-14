@@ -12,6 +12,8 @@
 	<Authors>Lewis Bennett</Authors>
 	<Company></Company>
 	<Description>NodaTime extensions to the unofficial .NET API client for the weather API available at weatherapi.com.</Description>
+	<PackageProjectUrl>https://github.com/lewisbennett/weatherapi-Net-Standard</PackageProjectUrl>
+	<PackageTags>weather,weatherapi,net</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
