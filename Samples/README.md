@@ -1,4 +1,4 @@
-# WeatherAPI samples
+# WeatherAPI.NET samples
 
 Sample projects for all of the client's features and functionality.
 
