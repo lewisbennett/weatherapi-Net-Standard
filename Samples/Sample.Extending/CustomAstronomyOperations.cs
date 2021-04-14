@@ -17,7 +17,7 @@ namespace Sample.Extending
             var astronomyResponseEntity = await base.GetAstronomyAsync<TAstronomyResponseEntity>(request, cancellationToken);
 
             // Do something custom, if the entity allows it.
-            if (astronomyResponseEntity is CustomAstronomyEntity customAstronomyEntity)
+            if (astronomyResponseEntity is CustomAstronomyResponseEntity customAstronomyEntity)
                 customAstronomyEntity.DoSomethingCustom();
 
             return astronomyResponseEntity;

@@ -3,7 +3,7 @@ using WeatherAPI.Entities;
 
 namespace Sample.Extending
 {
-    public class CustomAstronomyEntity : AstronomyResponseEntity
+    public class CustomAstronomyResponseEntity : AstronomyResponseEntity
     {
         private readonly string _message = "I'm a message from a custom entity!";
 

@@ -15,7 +15,7 @@ namespace Sample.Extending
             var request = new RequestEntity()
                 .WithCityName("London");
 
-            await customWeatherApiClient.Astronomy.GetAstronomyAsync<CustomAstronomyEntity>(request).ConfigureAwait(false);
+            await customWeatherApiClient.Astronomy.GetAstronomyAsync<CustomAstronomyResponseEntity>(request).ConfigureAwait(false);
 
             // Keeps the console window open at the end of the program.
             Console.ReadLine();
