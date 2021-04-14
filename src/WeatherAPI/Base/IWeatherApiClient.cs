@@ -31,6 +31,11 @@ namespace WeatherAPI.Base
         IRealtimeOperations Realtime { get; }
 
         /// <summary>
+        /// Gets the search API operations.
+        /// </summary>
+        ISearchOperations Search { get; }
+
+        /// <summary>
         /// Gets the sports API operations.
         /// </summary>
         ISportsOperations Sports { get; }
