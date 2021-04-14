@@ -3,10 +3,30 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
 	  <LangVersion>latest</LangVersion>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Description>Unofficial .NET API client for the weather API available at weatherapi.com.</Description>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
+	  <PackageProjectUrl>https://github.com/lewisbennett/weatherapi-Net-Standard</PackageProjectUrl>
+	  <PackageIcon>icon.png</PackageIcon>
+	  <RepositoryUrl>https://github.com/lewisbennett/weatherapi-Net-Standard</RepositoryUrl>
+	  <PackageTags>weather,weatherapi,net</PackageTags>
+	  <Version>0.1.0-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="C:\Users\Lewis\Downloads\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
