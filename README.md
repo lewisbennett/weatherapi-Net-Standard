@@ -54,6 +54,7 @@ Sample projects are available for all primary features. Please see the [README](
 * [History](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.History)
 * [IP address lookup](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.IPLookup)
 * [Realtime](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Realtime)
+* [Search](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Search)
 * [Sports](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Sports)
 * [Time zone](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.TimeZone)
 
