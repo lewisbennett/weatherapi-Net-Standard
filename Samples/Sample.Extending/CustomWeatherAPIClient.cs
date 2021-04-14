@@ -1,5 +1,5 @@
-﻿using WeatherAPI;
-using WeatherAPI.Operations.Base;
+﻿using WeatherAPI.NET;
+using WeatherAPI.NET.Operations.Base;
 
 namespace Sample.Extending
 {

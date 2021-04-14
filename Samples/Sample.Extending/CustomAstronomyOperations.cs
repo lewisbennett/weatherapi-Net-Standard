@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using WeatherAPI.Base;
-using WeatherAPI.Entities;
-using WeatherAPI.Operations;
+using WeatherAPI.NET.Base;
+using WeatherAPI.NET.Entities;
+using WeatherAPI.NET.Operations;
 
 namespace Sample.Extending
 {

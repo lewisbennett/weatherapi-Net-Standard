@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using WeatherAPI;
-using WeatherAPI.Entities;
+using WeatherAPI.NET;
+using WeatherAPI.NET.Entities;
 
 namespace Sample.Extending
 {

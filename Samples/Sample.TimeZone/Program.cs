@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using WeatherAPI;
+using WeatherAPI.NET;
 
 namespace Sample.TimeZone
 {

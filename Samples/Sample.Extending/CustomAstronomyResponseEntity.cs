@@ -1,5 +1,5 @@
 ﻿using System;
-using WeatherAPI.Entities;
+using WeatherAPI.NET.Entities;
 
 namespace Sample.Extending
 {
