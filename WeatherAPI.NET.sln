@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Search", "Samples\Sa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{2D04A366-7B74-4046-841A-4CDC7D6B6813}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAPI.NET.Extensions.NodaTime", "src\WeatherAPI.NET.Extensions.NodaTime\WeatherAPI.NET.Extensions.NodaTime.csproj", "{820DCD74-7BE3-4AA0-8461-8817C659F9FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{D0F4198C-F6BB-494E-858B-E77F1A7AAAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0F4198C-F6BB-494E-858B-E77F1A7AAAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0F4198C-F6BB-494E-858B-E77F1A7AAAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820DCD74-7BE3-4AA0-8461-8817C659F9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820DCD74-7BE3-4AA0-8461-8817C659F9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820DCD74-7BE3-4AA0-8461-8817C659F9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820DCD74-7BE3-4AA0-8461-8817C659F9FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

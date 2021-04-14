@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netstandard2.0</TargetFramework>
+	<LangVersion>latest</LangVersion>
+	<Version>0.1.0</Version>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<PackageIcon>icon.png</PackageIcon>
+	<RepositoryUrl>https://github.com/lewisbennett/weatherapi-Net-Standard</RepositoryUrl>
+	<Authors>Lewis Bennett</Authors>
+	<Company></Company>
+	<Description>NodaTime extensions to the unofficial .NET API client for the weather API available at weatherapi.com.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NodaTime" Version="3.0.5" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(Configuration)'=='Debug' ">
+    <ProjectReference Include="..\WeatherAPI.NET\WeatherAPI.NET.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
