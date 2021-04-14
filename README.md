@@ -56,3 +56,73 @@ Sample projects are available for all primary features. Please see the [README](
 * [Realtime](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Realtime)
 * [Sports](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Sports)
 * [Time zone](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.TimeZone)
+
+---
+
+## Extending
+
+The client has been designed to make extending the base functionality as easy, and as flexible, as possible. See the [extending sample project](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Extending) for a full example.
+
+### Custom response entities
+
+Providing custom entities allows you to inject an object type directly into the deserialization process. This means that there's no hassle serializing and deserializing the standard response objects to get what you want.
+
+```
+// Custom astronomy response entity.
+public class CustomAstronomyResponseEntity : AstronomyResponseEntity
+{
+    private readonly string _message = "I'm a message from a custom entity!";
+
+    public void DoSomethingCustom()
+    {
+        Console.WriteLine(_message);
+    }
+}
+
+// Your method to request the custom entity.
+public async Task GetCustomAstronomyAsync()
+{
+    CustomAstronomyResponseEntity customAstronomy = await weatherApiClient.Astronomy.GetAstronomyAsync<CustomAstronomyResponseEntity>();
+}
+```
+
+### Custom operation classes
+
+To build on top of the existing client's request functionality, you can extend operation classes too. Extending operations requires an extended, custom API client.
+
+```
+// Custom API client.
+public class CustomWeatherAPIClient : WeatherAPIClient
+{
+    protected override IAstronomyOperations ConstructAstronomyOperations()
+    {
+        return new CustomAstronomyOperations(this);
+    }
+
+    public CustomWeatherAPIClient(string apiKey)
+        : base(apiKey, null)
+    {
+    }
+}
+
+// Custom astronomy operations.
+public class CustomAstronomyOperations : AstronomyOperations
+{
+    // Overflow methods funnel down to the "most advanced" variant.
+    // This means that calls to the "lower level" overflow methods will also invoke this custom logic.
+    public override async Task<TAstronomyResponseEntity> GetAstronomyAsync<TAstronomyResponseEntity>(RequestEntity request, CancellationToken cancellationToken = default)
+    {
+        var astronomyResponseEntity = await base.GetAstronomyAsync<TAstronomyResponseEntity>(request, cancellationToken);
+
+        if (astronomyResponseEntity is CustomAstronomyResponseEntity customAstronomyEntity)
+            customAstronomyEntity.DoSomethingCustom();
+
+        return astronomyResponseEntity;
+    }
+
+    public CustomAstronomyOperations(IApiRequestor apiRequestor)
+        : base(apiRequestor)
+    {
+    }
+}
+```
