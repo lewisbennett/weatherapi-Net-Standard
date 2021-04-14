@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub forks](https://img.shields.io/nuget/dt/WeatherAPI.NET.svg)](https://www.nuget.org/packages/WeatherAPI.NET/)
+
 # WeatherAPI.NET
 
 Unofficial .NET API client for the weather API available at [weatherapi.com](https://weatherapi.com).
