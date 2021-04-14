@@ -22,9 +22,10 @@ public const string IPAddress = "127.0.0.1";
 
 ---
 
-## Features
+## Samples
 
 * [Astronomy](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Astronomy)
+* [Extending](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Extending)
 * [Forecast](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Forecast)
 * [History](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.History)
 * [IP address lookup](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.IPLookup)
