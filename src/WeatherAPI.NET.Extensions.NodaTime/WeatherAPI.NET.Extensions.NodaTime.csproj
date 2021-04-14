@@ -22,6 +22,10 @@
     <ProjectReference Include="..\WeatherAPI.NET\WeatherAPI.NET.csproj" />
   </ItemGroup>
 
+	<ItemGroup Condition=" '$(Configuration)'=='Release' ">
+		<PackageReference Include="WeatherAPI.NET" Version="0.1.0-alpha" />
+	</ItemGroup>
+
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
