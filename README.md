@@ -1,4 +1,4 @@
-# WeatherAPI
+# WeatherAPI.NET
 
 Unofficial .NET API client for the weather API available at [weatherapi.com](https://weatherapi.com).
 
