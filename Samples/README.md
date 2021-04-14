@@ -20,6 +20,14 @@ The IP address lookup sample requires a sample IP address. You should enter your
 public const string IPAddress = "127.0.0.1";
 ```
 
+### Search
+
+The search sample requires a search query. By default, "lon" is entered to try and invoke London as the search results. You can change the [`SearchQuery` value](https://github.com/lewisbennett/weatherapi-Net-Standard/blob/master/Samples/Sample.Search/Program.cs#L9) to search for a different location, for example:
+
+```
+public const string SearchQuery = "amst";
+```
+
 ---
 
 ## Samples
@@ -30,5 +38,6 @@ public const string IPAddress = "127.0.0.1";
 * [History](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.History)
 * [IP address lookup](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.IPLookup)
 * [Realtime](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Realtime)
+* [Search](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Search)
 * [Sports](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.Sports)
 * [Time zone](https://github.com/lewisbennett/weatherapi-Net-Standard/tree/master/Samples/Sample.TimeZone)
