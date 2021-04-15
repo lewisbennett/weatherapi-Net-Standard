@@ -3,7 +3,7 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>latest</LangVersion>
-	<Version>0.1.0</Version>
+	<Version>0.1.1-alpha</Version>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
 	<ItemGroup Condition=" '$(Configuration)'=='Release' ">
-		<PackageReference Include="WeatherAPI.NET" Version="0.1.0-alpha" />
+		<PackageReference Include="WeatherAPI.NET" Version="0.1.1-alpha" />
 	</ItemGroup>
 
   <ItemGroup>

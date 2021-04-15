@@ -11,7 +11,7 @@
 	  <PackageIcon>icon.png</PackageIcon>
 	  <RepositoryUrl>https://github.com/lewisbennett/weatherapi-Net-Standard</RepositoryUrl>
 	  <PackageTags>weather,weatherapi,net</PackageTags>
-	  <Version>0.1.0-alpha</Version>
+	  <Version>0.1.1-alpha</Version>
 	  <Authors>Lewis Bennet</Authors>
   </PropertyGroup>
 
