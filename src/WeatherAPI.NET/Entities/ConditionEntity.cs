@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using WeatherAPI.NET.Schema;
 
 namespace WeatherAPI.NET.Entities
 {
@@ -9,7 +10,7 @@ namespace WeatherAPI.NET.Entities
         /// Gets or sets the weather code.
         /// </summary>
         [JsonProperty("code")]
-        public int Code { get; set; }
+        public Condition Code { get; set; }
 
         /// <summary>
         /// Gets or sets the weather condition description.
