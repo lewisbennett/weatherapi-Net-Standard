@@ -21,7 +21,7 @@ namespace Sample.Sports
                 Console.WriteLine($"Found {sports.Cricket.Length} cricket events:");
 
                 foreach (var cricket in sports.Cricket)
-                    Console.WriteLine($"{cricket.Match}, {cricket.Start}");   
+                    Console.WriteLine($"{cricket.Match}, {cricket.Start}");
             }
 
             Console.WriteLine();

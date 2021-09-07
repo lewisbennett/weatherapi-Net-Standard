@@ -65,7 +65,7 @@ namespace WeatherAPI.NET.Entities
         /// </summary>
         [JsonProperty("last_updated")]
         public DateTime LastUpdated { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the local time when the real time data was updated, in unix time.
         /// </summary>

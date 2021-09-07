@@ -33,7 +33,7 @@ namespace WeatherAPI.NET.Entities
         /// <summary>
         /// Gets or sets the sunrise time.
         /// </summary>
-            [JsonProperty("sunrise")]
+        [JsonProperty("sunrise")]
         public DateTime Sunrise { get; set; }
 
         /// <summary>
