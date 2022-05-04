@@ -40,12 +40,14 @@ namespace WeatherAPI.NET.Extensions.NodaTime
         /// <param name="inZoneLeniantly">Whether to use leniant or strict zone conversion.</param>
         public static ZonedDateTime GetZonedMoonrise(this AstronomyResponseEntity astronomyResponseEntity, bool inZoneLeniantly = true)
         {
+            var MoonriseTime = Convert.ToDateTime(astronomyResponseEntity.Astronomy.Astro.Moonrise);
+
             return GetZonedDateTime(astronomyResponseEntity.Location.LocalTime.Year,
                 astronomyResponseEntity.Location.LocalTime.Month,
                 astronomyResponseEntity.Location.LocalTime.Day,
-                astronomyResponseEntity.Astronomy.Astro.Moonrise.Hour,
-                astronomyResponseEntity.Astronomy.Astro.Moonrise.Minute,
-                astronomyResponseEntity.Astronomy.Astro.Moonrise.Second,
+                MoonriseTime.Hour,
+                MoonriseTime.Minute,
+                MoonriseTime.Second,
                 astronomyResponseEntity.Location.TimeZoneID,
                 inZoneLeniantly);
         }
