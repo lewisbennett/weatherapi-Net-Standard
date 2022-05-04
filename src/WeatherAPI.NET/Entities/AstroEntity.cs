@@ -22,13 +22,13 @@ namespace WeatherAPI.NET.Entities
         /// Gets or sets the moonrise time.
         /// </summary>
         [JsonProperty("moonrise")]
-        public DateTime Moonrise { get; set; }
+        public string Moonrise { get; set; }
 
         /// <summary>
         /// Gets or sets the moonset time.
         /// </summary>
         [JsonProperty("moonset")]
-        public DateTime Moonset { get; set; }
+        public string Moonset { get; set; }
 
         /// <summary>
         /// Gets or sets the sunrise time.
